@@ -1,3 +1,3 @@
 <?php
-echo 'Hello, Marte!';
+echo 'Liga Campeón';
 ?>
