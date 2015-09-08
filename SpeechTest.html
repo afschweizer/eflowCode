@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script type="text/javascript">
+       
+        // Now we can start the speech recognition
+        // Supported only in Chrome
+        // Once started, you need to allow Chrome to use the microphone
+        var recognition = new webkitSpeechRecognition();
+		var foo = new SpeechSynthesisUtterance();
+			foo.lang="es-ES";
+		  
+        // Be default, Chrome will only return a single result.
+        // By enabling "continuous", Chrome will keep the microphone active.
+  
+        recognition.continuous = true;
+		recognition.nospeechtimeout=60000;
+        recognition.lang = "es"
+        recognition.onresult = function(event) {
+            // Get the current result from the results object
+            var transcript = event.results[event.results.length-1][0].transcript;
+            // Send the result string via WebSocket to the running Processing Sketch
+			
+			
+		
+		alert(transcript);
+		//foo.text=transcript;
+ 
+        //window.speechSynthesis.speak(foo);
+             
+        }
+        // Start the recognition
+        recognition.start();
+</script>
+</head>
+<body>
+ 
+</body>
+</html>
